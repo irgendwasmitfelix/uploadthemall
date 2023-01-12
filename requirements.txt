@@ -1,0 +1,5 @@
+PyQt5
+TikTokAPI
+googleapiclient.discovery
+google.oauth2.credentials
+instagram_api
