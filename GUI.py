@@ -9,14 +9,17 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QLabe
 from tiktok_api import TikTokAPI
 
 # API Keys and Permissions for the Platforms
-youtube_api_key = "YOUR_YOUTUBE_API_KEY"  # Replace with your actual API key
-instagram_access_token = "YOUR_INSTAGRAM_ACCESS_TOKEN"  # Replace with your actual access token
-tiktok_access_token = "YOUR_TIKTOK_ACCESS_TOKEN"  # Replace with your actual access token
+youtube_api_key = os.getenv("YOUTUBE_API_KEY")  # Replace with your actual API key in environment variables
+instagram_access_token = os.getenv("INSTAGRAM_ACCESS_TOKEN")  # Replace with your actual access token in environment variables
+tiktok_access_token = os.getenv("TIKTOK_ACCESS_TOKEN")  # Replace with your actual access token in environment variables
 
 class App(QWidget):
 
     def __init__(self):
         super().__init__()
+        self.youtube_settings = None
+        self.instagram_settings = None
+        self.tiktok_settings = None
         self.initUI()
 
     def initUI(self):
@@ -59,7 +62,7 @@ class App(QWidget):
         title = self.title_input.text()
         youtube_settings = self.youtube_settings
         instagram_settings = self.instagram_settings
-        tiktok_settings = self.tiktokSettings
+        tiktok_settings = self.tiktok_settings
 
         # YouTube
         if youtube_settings:
